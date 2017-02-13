@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mBottomBar = BottomBar.attach(this, savedInstanceState);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new ClubsFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new ClubFragment()).commit();
         mBottomBar.setItemsFromMenu(R.menu.menu_icons, new OnMenuTabSelectedListener() {
 
             @Override
             public void onMenuItemSelected(@IdRes int menuItemId) {
                 if (menuItemId == R.id.BottomMenuIconOneHome) {
-                    ClubsFragment f = new ClubsFragment();
+                    ClubFragment f = new ClubFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, f).commit();
                 } else if (menuItemId == R.id.BottomMenuIconTwoSearch) {
                     SearchFragment f = new SearchFragment();
