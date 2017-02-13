@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/BottomMenuIconOneHome"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home">
+    </item>
+
+    <item android:id="@+id/BottomMenuIconTwoSearch"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Search">
+    </item>
+
+    <item android:id="@+id/BottomMenuIconThreeChat"
+        android:icon="@drawable/ic_drafts_black_24dp"
+        android:title="Chat">
+    </item>
+
+    <item android:id="@+id/BottomMenuIconFourAccount"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Account">
+    </item>
+</menu>
