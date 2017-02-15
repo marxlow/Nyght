@@ -1,6 +1,7 @@
 package com.example.marx.Nyght;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
@@ -14,7 +15,6 @@ public class Nyght extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
     }
 }

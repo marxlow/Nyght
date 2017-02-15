@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Check for first time log-in
         if (AccessToken.getCurrentAccessToken() == null) {
             goLoginScreen();
         }
