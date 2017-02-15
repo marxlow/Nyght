@@ -95,6 +95,16 @@ public class LoginActivity extends AppCompatActivity {
     private void goMainScreen() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+        // Pass retrieved information to MainActivity
+        intent.putExtra("type", "FaceBook info");
+        intent.putExtra(getString(R.string.facebook_id), facebook_id);
+        intent.putExtra(getString(R.string.first_name), first_name);
+        intent.putExtra(getString(R.string.middle_name), middle_name);
+        intent.putExtra(getString(R.string.last_name), last_name);
+        intent.putExtra(getString(R.string.full_name), full_name);
+        intent.putExtra(getString(R.string.profile_gender), profile_gender);
+        intent.putExtra(getString(R.string.profile_image), profile_image);
+        intent.putExtra(getString(R.string.profile_email), profile_email);
         startActivity(intent);
     }
 

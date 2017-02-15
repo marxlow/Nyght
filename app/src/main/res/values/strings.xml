@@ -1,5 +1,19 @@
 <resources>
+
+    private String facebook_id, first_name, middle_name, last_name, full_name, profile_gender, profile_image, profile_email;
     <string name="app_name">Nyght</string>
-    <string name="facebook_app_id">976384835794764</string>
     <string name="LoginActivity_log">Login activity </string>
+
+    // Facebook String resources
+
+    <string name="facebook_app_id">976384835794764</string>
+    <string name="facebook_id">facebook_id</string>
+    <string name="first_name">first_name</string>
+    <string name="middle_name">middle_name</string>
+    <string name="last_name">last_name</string>
+    <string name="full_name">full_name</string>
+    <string name="profile_gender">profile_gender</string>
+    <string name="profile_image">profile_image</string>
+    <string name="profile_email">profile_email</string>
+
 </resources>
