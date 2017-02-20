@@ -53,11 +53,19 @@ public class MainActivity extends AppCompatActivity {
                     ChatFragment f = new ChatFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, f).commit();
                 } else if (menuItemId == R.id.BottomMenuIconFourAccount) {
+                    Bundle account_bundle = prepareAccountBundle();
                     AccountFragment f = new AccountFragment();
+                    f.setArguments(account_bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, f).commit();
                 }
             }
         });
+    }
+
+    private Bundle prepareAccountBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putString(getString(R.string.profile_image), this.profile_image);
+        return bundle;
     }
 
     private void initializeProfile(SharedPreferences profile_info, SharedPreferences.Editor editor) {
@@ -126,5 +134,8 @@ public class MainActivity extends AppCompatActivity {
         editor.clear();
         Log.d(getString(R.string.MainActivity_log), "Cleared current user info in sharedPreferences");
         goLoginScreen();
+    }
+    protected String getProfileImageUrl() {
+        return this.profile_image;
     }
 }

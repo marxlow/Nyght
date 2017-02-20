@@ -3,6 +3,7 @@
     <string name="app_name">Nyght</string>
     <string name="LoginActivity_log">~~~~~~~~~Login Activity~~~~~~~~~~~ </string>
     <string name="MainActivity_log">~~~~~~~~~~Main Activity~~~~~~~~~~</string>
+    <string name="AccountFragment_Log">~~~~~~~~~Account Fragment~~~~~~~~~~</string>
 
     // SharedPreference resources
     <string name="user_details">profile info</string>
