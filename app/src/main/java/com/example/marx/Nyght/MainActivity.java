@@ -64,7 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Bundle prepareAccountBundle() {
         Bundle bundle = new Bundle();
+        bundle.putString(getString(R.string.bundle_name), getString(R.string.account_bundle));
         bundle.putString(getString(R.string.profile_image), this.profile_image);
+        bundle.putString(getString(R.string.full_name), this.full_name);
+        bundle.putString(getString(R.string.profile_gender), this.profile_gender);
+        bundle.putString(getString(R.string.profile_email), this.profile_email);
         return bundle;
     }
 

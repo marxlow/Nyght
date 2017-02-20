@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +27,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AccountFragment extends Fragment {
 
     private CircleImageView profile_image;
+    private TextView profile_fullname, profile_gender, profile_email;
+    private String  full_name, gender, email;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,9 +50,24 @@ public class AccountFragment extends Fragment {
         // Initialize profile_image
         profile_image = (CircleImageView) v.findViewById(R.id.profile_image);
         profile_image.setImageBitmap(getBitMap(getArguments().getString(getString(R.string.profile_image))));
-        Log.d(getString(R.string.AccountFragment_Log),"Initializing ProfileImage");
+        Log.d(getString(R.string.AccountFragment_Log),"Initialized ProfileImage");
 
         // Initializing profile details
+        this.full_name = getArguments().getString(getString(R.string.full_name));
+        profile_fullname = (TextView) v.findViewById(R.id.profile_fullname);
+        profile_fullname.setText(this.full_name);
+        Log.d(getString(R.string.AccountFragment_Log),"Initialized profile name: " + this.full_name);
+
+        this.gender = getArguments().getString(getString(R.string.profile_gender));
+        profile_gender = (TextView) v.findViewById(R.id.profile_gender);
+        profile_gender.setText(this.gender);
+        Log.d(getString(R.string.AccountFragment_Log),"Initialized profile gender: " + this.gender);
+
+        this.email = getArguments().getString(getString(R.string.profile_email));
+        profile_gender = (TextView) v.findViewById(R.id.profile_email);
+        profile_gender.setText(this.email);
+        Log.d(getString(R.string.AccountFragment_Log),"Initialized profile email: " + this.email);
+
     }
 
     private Bitmap getBitMap(String src) {

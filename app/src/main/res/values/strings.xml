@@ -8,6 +8,9 @@
     // SharedPreference resources
     <string name="user_details">profile info</string>
 
+    // Bundle strings
+    <string name="account_bundle">account bundle</string>
+
     // Facebook String resources
     <string name="bundle_name">bundle type</string>
     <string name="facebook_bundle_name">facebook bundle</string>
