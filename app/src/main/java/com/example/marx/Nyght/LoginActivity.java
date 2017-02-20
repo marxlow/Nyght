@@ -14,6 +14,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -37,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // Facebook setting up
+        // Facebook set up
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
 
@@ -45,45 +46,49 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (LoginButton) findViewById(R.id.loginButton);
 
         // collect profile of user.
-        Log.d(getString(R.string.LoginActivity_log), "Retrieving profile info...");
         retrieveProfile(loginButton);
     }
 
     private void retrieveProfile(LoginButton loginButton) {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+
             @Override
             public void onSuccess(LoginResult loginResult) {
-
+                Log.d(getString(R.string.LoginActivity_log), "Login Success. Retrieving profile info...");
                 // Retrieve information
-                Profile profile = Profile.getCurrentProfile();
-                if (profile != null) {
-                    facebook_id = profile.getId();
-                    first_name = profile.getFirstName();
-                    middle_name = profile.getMiddleName();
-                    last_name = profile.getLastName();
-                    full_name = profile.getName();
-                    profile_image = profile.getProfilePictureUri(400, 400).toString();
-                    GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
-                            new GraphRequest.GraphJSONObjectCallback() {
-                                @Override
-                                public void onCompleted(JSONObject object, GraphResponse response) {
-                                    try {
-                                        profile_email = object.getString("email");
-                                        profile_gender = object.getString("gender");
-                                        full_name =object.getString("name");
-                                    } catch (JSONException e) {
-                                        Log.d(getString(R.string.LoginActivity_log), e.toString());
-                                    }
+                Profile userProfile = Profile.getCurrentProfile();
+                Log.d(getString(R.string.LoginActivity_log), "Fetching Profile info from: " + userProfile.getFirstName());
+
+                // initialize user details
+                facebook_id = userProfile.getId();
+                first_name = userProfile.getFirstName();
+                middle_name = userProfile.getMiddleName();
+                last_name = userProfile.getLastName();
+                full_name = userProfile.getName();
+                profile_image = userProfile.getProfilePictureUri(400, 400).toString();
+
+                // Retrieve graph to get more details
+                GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                try {
+                                    profile_email = object.getString("email");
+                                    profile_gender = object.getString("gender");
+                                    full_name = object.getString("name");
+                                } catch (JSONException e) {
+                                    Log.d(getString(R.string.LoginActivity_log), e.toString());
                                 }
-                            });
-                }
-                Toast.makeText(LoginActivity.this, "Welcome back " + full_name, Toast.LENGTH_SHORT).show();
+                            }
+                        });
                 goMainScreen();
             }
+
             @Override
             public void onCancel() {
                 Log.d(getString(R.string.LoginActivity_log), "login cancelled");
             }
+
             @Override
             public void onError(FacebookException error) {
                 Log.d(getString(R.string.LoginActivity_log), "error logging in");
@@ -96,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
         // Pass retrieved information to MainActivity
-        intent.putExtra("type", "FaceBook info");
+        intent.putExtra(getString(R.string.bundle_name), getString(R.string.facebook_bundle_name));
         intent.putExtra(getString(R.string.facebook_id), facebook_id);
         intent.putExtra(getString(R.string.first_name), first_name);
         intent.putExtra(getString(R.string.middle_name), middle_name);
@@ -105,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra(getString(R.string.profile_gender), profile_gender);
         intent.putExtra(getString(R.string.profile_image), profile_image);
         intent.putExtra(getString(R.string.profile_email), profile_email);
+        Log.d(getString(R.string.LoginActivity_log), "Passing intent to MainActivity");
         startActivity(intent);
     }
 

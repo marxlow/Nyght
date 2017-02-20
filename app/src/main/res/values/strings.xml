@@ -1,11 +1,15 @@
 <resources>
 
-    private String facebook_id, first_name, middle_name, last_name, full_name, profile_gender, profile_image, profile_email;
     <string name="app_name">Nyght</string>
-    <string name="LoginActivity_log">Login activity </string>
+    <string name="LoginActivity_log">~~~~~~~~~Login Activity~~~~~~~~~~~ </string>
+    <string name="MainActivity_log">~~~~~~~~~~Main Activity~~~~~~~~~~</string>
+
+    // SharedPreference resources
+    <string name="user_details">profile info</string>
 
     // Facebook String resources
-
+    <string name="bundle_name">bundle type</string>
+    <string name="facebook_bundle_name">facebook bundle</string>
     <string name="facebook_app_id">976384835794764</string>
     <string name="facebook_id">facebook_id</string>
     <string name="first_name">first_name</string>
