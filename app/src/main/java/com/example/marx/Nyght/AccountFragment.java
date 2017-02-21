@@ -50,7 +50,6 @@ public class AccountFragment extends Fragment {
         // Initialize profile_image
         profile_image = (CircleImageView) v.findViewById(R.id.profile_image);
         profile_image.setImageBitmap(getBitMap(getArguments().getString(getString(R.string.profile_image))));
-        profile_image.setBorderWidth(10);
         Log.d(getString(R.string.AccountFragment_Log),"Initialized ProfileImage");
 
         // Initializing profile details
