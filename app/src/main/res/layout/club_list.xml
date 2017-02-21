@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="2dp">
+
+    <ImageView
+        android:id="@+id/club_cover_picture"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/club_names"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/club_cover_picture"
+        android:text="Name of the club"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/club_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/club_names"
+        android:layout_toRightOf="@+id/club_cover_picture"
+        android:text="Description of the club"
+        android:textSize="16sp"/>
+</RelativeLayout>

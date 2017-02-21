@@ -4,6 +4,23 @@
     <string name="LoginActivity_log">~~~~~~~~~Login Activity~~~~~~~~~~~ </string>
     <string name="MainActivity_log">~~~~~~~~~~Main Activity~~~~~~~~~~</string>
     <string name="AccountFragment_Log">~~~~~~~~~Account Fragment~~~~~~~~~~</string>
+    <string name="ClubFragment_Log">~~~~~~~~~Club Fragment~~~~~~~~~~</string>
+
+    // Club List resources
+    <string-array name="Club_names">
+        <item>Zouk</item>
+        <item>F club</item>
+    </string-array>
+
+    <string-array name="Club_pics">
+        <item>@mipmap/zouk_icon</item>
+        <item>@mipmap/f_club_icon</item>
+    </string-array>
+
+    <string-array name="Club_descriptions">
+        <item> Zouk is...</item>
+        <item> F Club is...</item>
+    </string-array>
 
     // SharedPreference resources
     <string name="user_details">profile info</string>
