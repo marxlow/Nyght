@@ -4,14 +4,18 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -26,16 +30,27 @@ public class ClubFragment extends Fragment {
 
     List<ClubItem> clubItemList;
     ListView myListView;
+    EditText inputSearch;
+    CustomAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_club, container, false);
+        initView(v);
+        return v;
+    }
 
+    private void initView(View v) {
+        initClublist(v);
+    }
+
+    private void initClublist(View v) {
         clubItemList = new ArrayList<ClubItem>();
         club_profile_pic = getResources().obtainTypedArray(R.array.Club_pics);
         club_names = getResources().getStringArray(R.array.Club_names);
         club_description = getResources().getStringArray(R.array.Club_descriptions);
+
 
         for (int i = 0; i < club_names.length; i++) {
             ClubItem club = new ClubItem(club_names[i],
@@ -44,7 +59,7 @@ public class ClubFragment extends Fragment {
             clubItemList.add(club);
         }
         myListView = (ListView) v.findViewById(R.id.list);
-        CustomAdapter adapter = new CustomAdapter(this.getContext(), clubItemList);
+        adapter = new CustomAdapter(this.getContext(), clubItemList);
         myListView.setAdapter(adapter);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -53,7 +68,11 @@ public class ClubFragment extends Fragment {
                 Toast.makeText(getContext(), "" + club_name, Toast.LENGTH_SHORT).show();
             }
         });
-
-        return v;
+        initSearch(v);
     }
+
+    private void initSearch(View v) {
+        inputSearch = (EditText) v.findViewById(R.id.inputSearch);
+    }
+
 }

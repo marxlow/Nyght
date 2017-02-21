@@ -2,13 +2,17 @@ package com.example.marx.Nyght;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,26 +21,33 @@ import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
 
-    Context context;
-    List<ClubItem> clubItems;
+    private Context context;
+    private List<ClubItem> clubItems;
+    private List<ClubItem> filteredData;
+    private Filter mfilter;
 
     CustomAdapter(Context context, List<ClubItem> clubItems) {
         this.context = context;
         this.clubItems = clubItems;
+        this.filteredData = clubItems;
     }
     @Override
     public int getCount() {
-        return clubItems.size();
+        return filteredData.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return clubItems.get(position);
+        return filteredData.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return clubItems.indexOf(getItem(position));
+        return filteredData.indexOf(getItem(position));
+    }
+
+    public List<ClubItem> getClubItems() {
+        return this.filteredData;
     }
 
     // Private view holder class
@@ -61,7 +72,7 @@ public class CustomAdapter extends BaseAdapter {
             holder.club_name = (TextView) convertView.findViewById(R.id.club_names);
             holder.club_description = (TextView) convertView.findViewById(R.id.club_description);
 
-            ClubItem club_pos = clubItems.get(position);
+            ClubItem club_pos = filteredData.get(position);
             holder.club_cover_picture.setImageResource(club_pos.getClub_cover_picture_id());
             holder.club_name.setText(club_pos.getClub_name());
             holder.club_description.setText(club_pos.getClub_description());
