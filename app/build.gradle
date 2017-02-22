@@ -4,7 +4,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
     defaultConfig {
-        applicationId "com.example.marx.fblogintest"
+        applicationId "com.example.marx.Nyght"
         minSdkVersion 23
         targetSdkVersion 24
         versionCode 1
@@ -38,3 +38,4 @@ dependencies {
     // Chat library
     compile 'com.firebaseui:firebase-ui:0.6.2'
 }
+apply plugin: 'com.google.gms.google-services'

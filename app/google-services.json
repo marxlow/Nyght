@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "747581854200",
+    "firebase_url": "https://nyght-efd6b.firebaseio.com",
+    "project_id": "nyght-efd6b",
+    "storage_bucket": "nyght-efd6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747581854200:android:f0a80dcdcd7c9d56",
+        "android_client_info": {
+          "package_name": "com.example.marx.Nyght"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747581854200-61pv99qgiju5i0d51vlo9pv9ov8d6p0r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.marx.Nyght",
+            "certificate_hash": "6e0742f787fe037941eeec3a980190ff1d03e92b"
+          }
+        },
+        {
+          "client_id": "747581854200-umiikvnaedk9e8uo4j4tfm7jlrgob79f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUxiSFizOnoeFuwjJFeKKyKRCSD-TVafU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747581854200-umiikvnaedk9e8uo4j4tfm7jlrgob79f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
