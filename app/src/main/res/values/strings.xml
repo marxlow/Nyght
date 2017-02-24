@@ -5,6 +5,7 @@
     <string name="MainActivity_log">~~~~~~~~~~Main Activity~~~~~~~~~~</string>
     <string name="AccountFragment_Log">~~~~~~~~~Account Fragment~~~~~~~~~~</string>
     <string name="ClubFragment_Log">~~~~~~~~~Club Fragment~~~~~~~~~~</string>
+    <string name="ChatFragment_Log">~~~~~~~~~Chat Fragment~~~~~~~~~</string>
 
     // Club List resources
     <string-array name="Club_names">

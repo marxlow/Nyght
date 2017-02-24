@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
@@ -134,11 +135,19 @@ public class MainActivity extends AppCompatActivity {
     public void logOut(View view) {
         SharedPreferences profile_info = getSharedPreferences(getString(R.string.user_details), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = profile_info.edit();
-        LoginManager.getInstance().logOut();
         editor.clear();
         Log.d(getString(R.string.MainActivity_log), "Cleared current user info in sharedPreferences");
+
+        // Log out of Facebook
+        LoginManager.getInstance().logOut();
+        // Log out of Firebase
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
+
+        Log.d(getString(R.string.MainActivity_log), "Logged out of Firebase & Facebook");
         goLoginScreen();
     }
+
     protected String getProfileImageUrl() {
         return this.profile_image;
     }
