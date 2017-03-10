@@ -22,10 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.marx.Nyght.LoginActivity">
-
-        </activity>
+        <activity android:name="com.example.marx.Nyght.LoginActivity"></activity>
+        <activity android:name="com.example.marx.Nyght.ChatActivity"></activity>
     </application>
 
 </manifest>

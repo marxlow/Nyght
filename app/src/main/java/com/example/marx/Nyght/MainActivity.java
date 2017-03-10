@@ -51,8 +51,9 @@ public class MainActivity extends AppCompatActivity {
                     SearchFragment f = new SearchFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, f).commit();
                 } else if (menuItemId == R.id.BottomMenuIconThreeChat) {
-                    ChatFragment f = new ChatFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame, f).commit();
+                    //ChatFragment f = new ChatFragment();
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.frame, f).commit();
+                    goChatActivity();
                 } else if (menuItemId == R.id.BottomMenuIconFourAccount) {
                     Bundle account_bundle = prepareAccountBundle();
                     AccountFragment f = new AccountFragment();
@@ -61,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void goChatActivity() {
+        Intent intent = new Intent(this, ChatActivity.class);
+       // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private Bundle prepareAccountBundle() {

@@ -5,7 +5,7 @@
     <string name="MainActivity_log">~~~~~~~~~~Main Activity~~~~~~~~~~</string>
     <string name="AccountFragment_Log">~~~~~~~~~Account Fragment~~~~~~~~~~</string>
     <string name="ClubFragment_Log">~~~~~~~~~Club Fragment~~~~~~~~~~</string>
-    <string name="ChatFragment_Log">~~~~~~~~~Chat Fragment~~~~~~~~~</string>
+    <string name="ChatActivity_Log">~~~~~~~~~Chat Activity~~~~~~~~~</string>
 
     // Club List resources
     <string-array name="Club_names">
@@ -28,6 +28,7 @@
 
     // Bundle strings
     <string name="account_bundle">account bundle</string>
+    <string name="chat_bundle">chat bundle</string>
 
     // Facebook String resources
     <string name="bundle_name">bundle type</string>
