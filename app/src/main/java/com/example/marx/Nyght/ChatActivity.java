@@ -60,6 +60,8 @@ public class ChatActivity extends AppCompatActivity {
             }
         };
         listOfMessages.setAdapter(adapter);
+        listOfMessages.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+        listOfMessages.setStackFromBottom(true);
     }
 
 }
